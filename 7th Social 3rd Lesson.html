@@ -10,14 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
 
-    <style>
+        <style>
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-color: #e0e0e0;
             --primary-color: #4caf50;
             --secondary-color: #2196f3;
-            --accent-color: #ff9800;
+            --accent-color: #ff5722;
             --border-color: #333333;
         }
 
@@ -26,39 +26,31 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px;
+            padding: 10px; /* మొబైల్ కోసం ప్యాడింగ్ తగ్గించబడింది */
             line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
-       .container {
-    max-width: 100%; /* 900px నుండి 100% కి మార్చండి */
-    margin: 0 auto;
-    padding: 5px;  /* ప్యాడింగ్ తగ్గించండి */
-}
-
-.card {
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    padding: 15px 15px; /* మొబైల్ కోసం సైడ్ ప్యాడింగ్ తగ్గించబడింది */
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border-left: 5px solid var(--primary-color);
-    box-sizing: border-box;
-}
+        .container {
+            width: 100%;
+            max-width: 100%; /* మొబైల్‌లో పూర్తి వెడల్పు తీసుకునేలా మార్చబడింది */
+            margin: 0 auto;
+            padding: 5px;
+            box-sizing: border-box;
+        }
 
         h1 {
             color: #ffffff;
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-top: 0;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 8px;
@@ -66,17 +58,24 @@
 
         h3 {
             color: var(--secondary-color);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-top: 20px;
             margin-bottom: 10px;
         }
 
-        .card-blue {
-            border-left-color: var(--secondary-color);
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px; /* మొబైల్‌లో కార్డ్ లోపలి స్పేస్ సరిగ్గా ఉండేలా మార్చబడింది */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--primary-color);
+            box-sizing: border-box;
+            width: 100%; /* కార్డ్ వెడల్పు 100% ఉండేలా సెట్ చేయబడింది */
         }
 
-        .card-orange {
-            border-left-color: var(--accent-color);
+        .card-blue {
+            border-left-color: var(--secondary-color);
         }
 
         p {
@@ -96,9 +95,16 @@
         .note-box {
             background-color: #2a2415;
             border-left: 5px solid #ffb300;
-            padding: 15px 20px;
+            padding: 12px 15px;
             border-radius: 4px;
-            margin: 20px 0;
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        .note-title {
+            color: #ffb300;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
         .image-container {
@@ -111,7 +117,7 @@
 
         .image-container img {
             width: 100%;
-            max-width: 550px;
+            max-width: 450px;
             height: auto;
             display: inline-block;
             border-radius: 8px;
@@ -119,39 +125,19 @@
             border: 1px solid var(--border-color);
         }
 
-        /* కలర్ ఇండికేటర్స్ */
-        .color-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .color-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .color-box {
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            margin-right: 15px;
-            border: 1px solid #fff;
-            flex-shrink: 0;
-        }
-
         /* టేబుల్ స్టైల్స్ */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 15px 0;
             background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
+            font-size: 0.95rem;
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
         }
@@ -160,6 +146,22 @@
             background-color: #2e7d32;
             color: white;
             font-weight: normal;
+        }
+
+        tr:hover {
+            background-color: #252525;
+        }
+
+        .slogan {
+            background-color: #1b2e1c;
+            border: 1px dashed var(--primary-color);
+            padding: 12px;
+            text-align: center;
+            font-size: 1rem;
+            color: #81c784;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-sizing: border-box;
         }
     </style>
 </head>

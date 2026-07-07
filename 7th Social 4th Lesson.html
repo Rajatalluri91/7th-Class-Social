@@ -21,31 +21,32 @@
             --border-color: #333333;
         }
 
-        body {
+         body {
             font-family: 'Mandali', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px;
+            padding: 10px; /* మొబైల్ కోసం ప్యాడింగ్ తగ్గించబడింది */
             line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
-
-        .container {
-    max-width: 100%; /* 900px నుండి 100% కి మార్చండి */
-    margin: 0 auto;
-    padding: 5px;  /* ప్యాడింగ్ తగ్గించండి */
-}
-
-.card {
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    padding: 15px 15px; /* మొబైల్ కోసం సైడ్ ప్యాడింగ్ తగ్గించబడింది */
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border-left: 5px solid var(--primary-color);
-    box-sizing: border-box;
-}
+  .container {
+            width: 100%;
+            max-width: 100%; /* మొబైల్‌లో పూర్తి వెడల్పు తీసుకునేలా మార్చబడింది */
+            margin: 0 auto;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+ .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px; /* మొబైల్‌లో కార్డ్ లోపలి స్పేస్ సరిగ్గా ఉండేలా మార్చబడింది */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--primary-color);
+            box-sizing: border-box;
+            width: 100%; /* కార్డ్ వెడల్పు 100% ఉండేలా సెట్ చేయబడింది */
+        }
 
         h1 {
             color: #ffffff;

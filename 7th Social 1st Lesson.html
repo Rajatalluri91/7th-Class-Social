@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+	<!-- Google Fonts నుండి మండలి (Mandali) ఫాంట్ లింక్ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>విశ్వం - భూమి మరియు పర్యావరణం</title>
+    <style>
+		body {
+    /* మీ పాత బాడీ స్టైల్స్ అలాగే ఉంచి, font-family ని ఇలా మార్చండి */
+    font-family: 'Mandali', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ఒకవేళ హెడ్డింగ్స్ (భూమి, పర్యావరణం) కూడా మండలి ఫాంట్ లోనే రావాలంటే */
+h2, h3, .card h2, p, li {
+    font-family: 'Mandali', sans-serif;
+    font-weight: normal; /* మండలి ఫాంట్ హెడ్డింగ్స్ నీట్‌గా కనిపించడానికి */
+}
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --primary-color: #2e7d32;
+            --secondary-color: #1565c0;
+            --accent-color: #d84315;
+            --border-color: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --primary-color: #81c784;
+            --secondary-color: #64b5f6;
+            --accent-color: #ff7043;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1b5e20, #0d47a1);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        [data-theme="dark"] .header {
+            background: linear-gradient(135deg, #002f00, #001f4d);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .theme-switch-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 26px;
+            position: relative;
+            width: 50px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: white;
+            bottom: 4px;
+            content: "";
+            height: 18px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .mode-label {
+            margin-right: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px 30px; /* ప్యాడింగ్‌ని కొద్దిగా తగ్గించాం */
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s;
+    box-sizing: border-box; /* సైజులు మారకుండా కరెక్ట్‌గా ఉంచుతుంది */
+}
+
+/* ఇమేజ్ కంటైనర్ మార్జిన్ తగ్గించడానికి */
+.image-container {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0 5px 0; /* మార్జిన్ తగ్గించాం */
+    padding: 0;
+    clear: both;
+}
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card.blue-border {
+            border-left-color: var(--secondary-color);
+        }
+
+        .card.orange-border {
+            border-left-color: var(--accent-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .blue-border h2 {
+            color: var(--secondary-color);
+        }
+
+        .orange-border h2 {
+            color: var(--accent-color);
+        }
+
+        h3 {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            margin-top: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .image-placeholder {
+            background-color: rgba(0, 0, 0, 0.04);
+            border: 2px dashed #999;
+            border-radius: 8px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        [data-theme="dark"] .image-placeholder {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: #555;
+            color: #aaa;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        [data-theme="dark"] .badge {
+            color: #121212;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>1. విశ్వం - భూమి</h1>
+        <div class="theme-switch-wrapper">
+            <span class="mode-label"></span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- భూమి Card -->
+        <div class="card">
+    <h2>భూమి</h2>
+    <p>సౌర కుటుంబం లో  భూమి ఒక్కటే జీవరాశి కలిగిన గ్రహం. దీనిపై సరైన ఉష్ణోగ్రత ఉంటుంది, ఎందుకంటే ఇది సూర్యునికి చాలా దగ్గరగా గాని చాలా దూరంగా గాని లేదు. కనుక, భూమిపై జీవరాశులు మనుగడ సాగిస్తున్నాయి.</p>
+    
+    <!-- ఇమేజ్ కంటైనర్ క్లాస్‌తో కొత్త కోడ్ -->
+    <div class="image-container">
+        <img src="https://i.pinimg.com/1200x/52/56/c2/5256c22a2e20c7c5c1beb0aefd094491.jpg" alt="విశ్వం మరియు భూమి చార్ట్" style="width: 100%; max-width: 550px; height: auto; display: inline-block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); border: 1px solid #444;">
+    </div>
+</div>
+        </div>
+
+        <!-- పర్యావరణం Card -->
+        <div class="card blue-border">
+            <h2>పర్యావరణం (Environment)</h2>
+            <ul>
+                <li>ఒక ప్రాంతంలోని మొక్కలు, జంతువులు మరియు సూక్ష్మజీవులతో కూడిన అన్ని జీవ మరియు జీవరహిత కారకాలతో కలిసి పనిచేసే సహజ వ్యవస్థను <strong>పర్యావరణం</strong> అని అంటారు.</li>
+                <li>ఇది సహజ మరియు మానవ నిర్మిత అంశాల రెండింటి కలయిక. ఇది మన ప్రాథమిక జీవిత సహాయక వ్యవస్థ.</li>
+                <li>ఇది, మనం పీల్చే గాలి, తాగే నీరు, తినే ఆహారం, జీవించే భూమి వంటి వాటిని మనకు అందిస్తుంది. ఇది కంటికి కనిపించని ఎన్నో రకాల సూక్ష్మజీవులు, జంతువులు, మొక్కలు మరియు మానవులను కలిగి ఉంటుంది.</li>
+                <li>"పర్యావరణం" (ఎన్విరాన్మెంట్) అనే పదం ఫ్రెంచ్ పదం అయిన <span class="highlight">ఎన్విరోనర్ (Environner)</span> అంటే 'పొరుగు' అనే అర్థం నుంచి ఉత్పన్నమైంది.</li>
+            </ul>
+            <div class="badge" style="background-color: var(--accent-color);">ముఖ్యమైన తేదీ</div>
+            <p><strong>ప్రతి సంవత్సరం జూన్ 5వ తేదీని మనం "ప్రపంచ పర్యావరణ దినోత్సవంగా" జరుపుకుంటున్నాం.</strong></p>
+        </div>
+
+        <!-- శిలావరణము Card -->
+        <div class="card">
+            <h2>శిలావరణము (Lithosphere)</h2>
+            <p>భూమి యొక్క రాతి పొరను <strong>శిలావరణము</strong> అంటారు. ఇది రాళ్ళు మరియు ఖనిజాలతో రూపొంది, మట్టి యొక్క పలుచని పొరతో కప్పబడి ఉంటుంది. ఇది పర్వతాలు, పీఠభూములు, మైదానాలు, లోయలు, డెల్టాలు, ఎడారులు మొదలైన విభిన్న భూభాగాలతో కూడిన క్రమరహిత ఉపరితలం.</p>
+            
+            <h3>భూస్వరూపాల శ్రేణులు:</h3>
+            <p>ఈ భూస్వరూపాలను మూడు శ్రేణులుగా విభజించారు:</p>
+            <ul>
+                <li>మొదటి శ్రేణి</li>
+                <li>రెండవ శ్రేణి</li>
+                <li>మూడవ శ్రేణి</li>
+            </ul>
+
+            <h3>పద ఉత్పత్తి:</h3>
+            <p>శిలావరణము (లిథోస్పియర్) అనే పదం 'లిథో' మరియు 'స్ఫైరా' అనే గ్రీకు పదాల నుండి ఉద్భవించింది. <strong>'లిథో' అంటే "రాయి"</strong> మరియు <strong>'స్ఫైరా' అంటే "గోళం" లేదా "బంతి"</strong> అని అర్థం.</p>
+            
+            <p class="highlight">📅 ప్రతి సంవత్సరం ఏప్రిల్ 22న "ప్రపంచ ధరిత్రి దినోత్సవం" జరుపుకుంటాము.</p>
+        </div>
+
+        <!-- భూమి అంతర్భాగం Card -->
+        <div class="card orange-border">
+            <h2>భూమి అంతర్భాగం</h2>
+            <p>మనం గమనిస్తే, భూమి నిర్మాణం కోడి గుడ్డుకి ఉన్నటువంటి విభిన్న పొరల మాదిరిగా ఉంటుంది. ఈ పొరలు ఒకదానికొకటి మందంలో మరియు వాటి భౌతిక మరియు రసాయన కూర్పులో భిన్నంగా ఉంటాయి. భూమి మూడు పొరలను కలిగి ఉంటుంది:</p>
+            
+            <div class="grid-2">
+                <div>
+                    <ul>
+                        <li><strong>భూ పటలము (Crust)</strong></li>
+                        <li><strong>భూ ప్రావారము (Mantle)</strong></li>
+                        <li><strong>భూ కేంద్రము (Core)</strong></li>
+                    </ul>
+                </div>
+                <!-- ఇమేజ్ ప్లేస్‌హోల్డర్: భూమి అంతర్భాగ పొరలు -->
+                <div class="image-placeholder" style="height: 150px;">
+                    [భూమి అంతర్భాగ పొరల చిత్రం]
+                </div>
+            </div>
+
+            <h3>శిలావరణం యొక్క ఉపయోగాలు:</h3>
+            <ul>
+                <li>వ్యవసాయం మరియు మానవ నివాసాల కోసం మనం ఉపయోగించే ఆవరణం శిలావరణము. శిలావరణము యొక్క పలుచటి నేల పొర వ్యవసాయ అభివృద్ధికి సహాయపడుతుంది మరియు మనకు ఆహారాన్ని అందిస్తుంది.</li>
+                <li>శిలావరణము యొక్క రాతి పొర పరిశ్రమలకు ఖనిజాలను అందిస్తూ పారిశ్రామిక అభివృద్ధికి తోడ్పడుతుంది. ఇది అడవులు మరియు పశువుల మేత కోసం గడ్డి భూములను కూడా అందిస్తుంది.</li>
+            </ul>
+        </div>
+
+        <!-- జలావరణము Card -->
+        <div class="card blue-border">
+            <h2>జలావరణము (Hydrosphere)</h2>
+            <p>భూమి యొక్క ఉపరితలంలొ ఉన్న అన్ని నీటి వనరులను సమిష్టిగా జలావరణము అంటారు. జలమును సమృద్ధిగా కలిగి ఉన్న ఏకైక గ్రహం కనుక భూమిని <span class="highlight">"జలయుత గ్రహం" (Blue Planet)</span> అని పిలుస్తారు. మన గ్రహం మీద జీవం యొక్క ఉనికి ప్రధానంగా నీరు మరియు గాలి పైన ఆధారపడి ఉంది.</p>
+            
+            <p>📊 <strong>నీటి లభ్యత శాతం:</strong> భూమి యొక్క ఉపరితలం సుమారు <strong>2/3 (71%)</strong> నీటితో ఆవరించి <strong>1% మాత్రమే</strong> మన అవసరాలకు ఉపయోగపడుతుంది. మిగిలిన <strong>99% నీరు</strong> మంచు, ఉప్పు రూపంలో ఉంది.</p>
+
+            <h3>పద ఉత్పత్తి:</h3>
+            <p>"హైడ్రోస్పియర్" (జలావరణము) అనే పదం 'హైడర్' మరియు 'స్ఫైరా' అనే గ్రీకు పదాల నుండి ఉద్భవించింది. <strong>'హైడర్' అంటే నీరు</strong> మరియు <strong>'స్ఫైరా' అంటే గోళం లేదా బంతి</strong> అని అర్థం.</p>
+            
+            <p>📅 ప్రతి సంవత్సరం మార్చి 22 ను "ప్రపంచ జల దినోత్సవంగా" జరుపుకుంటాము.</p>
+        </div>
+
+        <!-- వాతావరణము Card -->
+        <div class="card">
+            <h2>వాతావరణము (Atmosphere)</h2>
+            <p>భూమి చుట్టూ ఉన్న గాలి యొక్క మందపాటి పొరను వాతావరణం అంటారు. ఇది భూమి యొక్క ఉపరితలం నుండి అనేక వందల కిలోమీటర్ల పైకి విస్తరించి ఉంది.</p>
+
+            <div class="grid-2">
+                <div>
+                    <h3>వాయువుల మిశ్రమం (చార్ట్ వివరాలు):</h3>
+                    <ul>
+                        <li>నైట్రోజన్ (నత్రజని) - <strong>78%</strong></li>
+                        <li>ఆక్సిజన్ (ప్రాణవాయువు) - <strong>21%</strong></li>
+                        <li>ఆర్గాన్ - <strong>0.93%</strong></li>
+                        <li>కార్బన్ డై ఆక్సైడ్ - <strong>0.03%</strong></li>
+                        <li>ఇతర వాయువులు - <strong>0.04%</strong></li>
+                    </ul>
+                </div>
+                <!-- ఇమేజ్ ప్లేస్‌హోల్డర్: వాతావరణ వాయువుల పై చార్ట్ -->
+                 <div class="image-container">
+        <img src="https://i.pinimg.com/736x/be/26/b6/be26b60bd9792dfab7b0aaedbf810a54.jpg" alt="విశ్వం మరియు భూమి చార్ట్" style="width: 100%; max-width: 550px; height: auto; display: inline-block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); border: 1px solid #444;">
+    </div>
+            </div>
+
+            <h3>పద ఉత్పత్తి & ముఖ్యమైన రోజు:</h3>
+            <p>"వాతావరణం" (అట్మాస్పియర్) అనే పదం 'అట్మోస్' మరియు 'స్ఫైరా' అనే గ్రీకు పదాల నుండి ఉద్భవించింది. <strong>'అట్మోస్' అంటే ఆవిరి</strong> అని అర్థం.</p>
+            <p class="highlight">📅 ప్రతి సంవత్సరం సెప్టెంబర్ 16ను "ప్రపంచ ఓజోన్ దినోత్సవం" గా జరుపుకుంటాము.</p>
+
+            <h3>వాతావరణ ఐదు పొరలు:</h3>
+            <p>వాతావరణం సాధారణంగా భూమి యొక్క ఉపరితలం నుండి ఐదు పొరలుగా విభజించబడి ఉంది (వీటి మధ్య కచ్చితమైన సరిహద్దు లేదు):</p>
+            <ol>
+                <li>ట్రోపో ఆవరణము</li>
+                <li>స్ట్రాటో ఆవరణము</li>
+                <li>మెసో ఆవరణము</li>
+                <li>థర్మో ఆవరణము</li>
+                <li>ఎక్సో ఆవరణము</li>
+            </ol>
+
+            <h3>వాతావరణ ప్రాముఖ్యత:</h3>
+            <ul>
+                <li>ఆక్సిజన్ "ప్రాణ వాయువు" గా పరిగణించబడుతుంది. ఆక్సిజన్ లేకుండా ప్రాణం లేదు. ఇది మానవులతో సహా అన్ని జంతువులకు ఆక్సిజన్‌ను మరియు మొక్కలకు కార్బన్ డై ఆక్సైడ్ ను అందిస్తుంది. కిరణజన్య సంయోగక్రియ ప్రక్రియలో మొక్కలకు కార్బన్ డై ఆక్సైడ్ సహాయపడుతుంది.</li>
+                <li>వాతావరణం సూర్యుని యొక్క హానికరమైన కిరణాలు మరియు తీవ్రమైన వేడి నుండి మనల్ని రక్షిస్తుంది.</li>
+                <li>వాతావరణంలో ఉన్న నీటి ఆవిరి మరియు ధూళి కణాలు మేఘాలను ఏర్పరచి తద్వారా వర్షాలు పడేలా చేస్తాయి.</li>
+            </ul>
+        </div>
+
+        <!-- జీవావరణం Card -->
+        <div class="card blue-border">
+            <h2>జీవావరణం (Biosphere)</h2>
+            <p>వృక్షాలు, జంతువులు, కంటికి కనిపించని అసంఖ్యాక సూక్ష్మజీవులు మరియు మానవులు కలిసి ఉండే ఆవరణాన్ని జీవావరణం అంటారు. ఇది భూమి, నీరు మరియు గాలి ఒకదానితో ఒకటి కలిసే ప్రాంతం.</p>
+            <p><strong>పద ఉత్పత్తి:</strong> జీవావరణం (బయోస్పియర్) అనే పదం గ్రీకు పదాలైన 'బయోస్' మరియు 'స్ఫైరా' నుండి ఉద్భవించింది. <strong>'బయోస్' అంటే జీవితం</strong> మరియు <strong>'స్ఫైరా' అంటే గోళం లేదా బంతి</strong>.</p>
+        </div>
+
+        <!-- మానవ పర్యావరణం Card -->
+        <div class="card orange-border">
+            <h2>మానవ పర్యావరణం & మానవ నిర్మిత పర్యావరణం</h2>
+            <h3>మానవ పర్యావరణం:</h3>
+            <p>మానవులతో ఏర్పడిన పరిసరాలను మానవ పర్యావరణం అంటారు. ఇది వ్యక్తి, కుటుంబం, సమాజం విద్యా, ఆర్థిక, రాజకీయ పరిస్థితులను కలిగి ఉంటుంది. చారిత్రకంగా స్థిర జీవితం ఏర్పడిన తరువాత, మానవులు ఒకరు ఒకరిపై ఆధారపడి జీవించడం ప్రారంభించారు. ఇది మానవ పర్యావరణ స్థాపనకు దారితీసింది.</p>
+            
+            <h3>మానవ నిర్మిత పర్యావరణం:</h3>
+            <p>మానవులు తయారు చేసిన పరిసరాలను మానవ నిర్మిత పర్యావరణం అంటారు. ఇది భవనాలు, కర్మాగారాలు, ఉద్యానవనాలు, రోడ్లు, వంతెనలు, ప్రాజెక్టులు మరియు స్మారక చిహ్నాలు మొదలైన వాటిని కలిగి ఉంటుంది.</p>
+        </div>
+
+        <!-- కాలుష్యాలు Card -->
+        <div class="card">
+            <h2>కాలుష్యాలు - నివారణ మార్గాలు</h2>
+            <h3>వాయు కాలుష్య నివారణ:</h3>
+            <p>వాయు కాలుష్యాన్ని తగ్గించడానికి విభిన్న వాయు కాలుష్య నియంత్రణ సాంకేతికతలు మరియు భూ వినియోగ ప్రణాళికా వ్యూహాలు అందుబాటులో ఉన్నాయి.</p>
+
+            <h3>నీటి కాలుష్యం:</h3>
+            <p>నీటి నాణ్యతలో ఏదైనా భౌతిక, జీవ లేదా రసాయనిక మార్పు జరిగి దానివల్ల జీవులపై దుష్ప్రభావం ఏర్పడినట్లయితే దానిని నీటి కాలుష్యంగా పరిగణిస్తారు.</p>
+
+            <h3>నీటి కాలుష్యానికి కారణాలు:</h3>
+            <ul>
+                <li>విభిన్న వ్యర్థాల కారణంగా నీరు కలుషితమవుతుంది.</li>
+                <li>పారిశ్రామిక కాలుష్యాలలో అనేక రకాల సేంద్రీయ మరియు అకర్బన కాలుష్య కారకాలు ఉన్నాయి. ఉదా., కాగితం మరియు కాగితపు గుజ్జు, రంగులు వేసే వస్త్ర పరిశ్రమలు.</li>
+                <li>ఎరువులు మరియు రసాయన పరిశ్రమలు కూడా నీటి కాలుష్యం సమస్యను తీవ్రమైన పర్యావరణ సమస్యగా మార్చాయి.</li>
+            </ul>
+
+            <h3>సహజ వనరులను పరిరక్షించే మార్గాలు:</h3>
+            <ul>
+                <li>పర్యావరణ విద్యను పాఠ్యాంశాల్లో తప్పనిసరిగా చేర్చాలి.</li>
+                <li>పునర్వినియోగం చేయడం మరియు పునరుత్పాదన చేయడం ద్వారా పునరుత్పాదక వనరుల సామర్థ్యాన్ని పెంచడం.</li>
+            </ul>
+        </div>
+
+        <!-- విపత్తులు Card -->
+        <div class="card orange-border">
+            <h2>విపత్తులు (Disasters) & వాటి నిర్వహణ</h2>
+            <p>విపత్తు అనేది స్వల్ప లేదా దీర్ఘకాలికంగా సంభవించే తీవ్రమైన అంతరాయం. దీని వలన విస్తృతమైన మానవ, శారీరక, ఆర్థిక లేదా పర్యావరణ నష్టం సంభవిస్తుంది. ఇది సమాజానికి దాని సొంత వనరులను ఉపయోగించుకునే సామర్థ్యాన్ని దూరం చేస్తుంది.</p>
+
+            <h3>విపత్తుల రకాలు:</h3>
+            <ul>
+                <li><strong>ప్రకృతి విపత్తులు :</strong> ప్రకృతి విపత్తు అనేది ఒక సహజ ప్రక్రియ లేదా దృగ్విషయం, దీని వల్ల ప్రాణ నష్టం, గాయం లేదా ఇతర ఆరోగ్య ప్రభావాలు, ఆస్తి నష్టం, జీవనోపాధి మరియు సేవను కోల్పోవడం, సామాజిక మరియు ఆర్థిక అంతరాయం లేదా పర్యావరణ నష్టం సంభవిస్తాయి. (ఉదా: <em>కరువు</em> - ఉపరితల నీరు లేదా భూగర్భ జలాల నీటి సరఫరాలో దీర్ఘకాలిక కొరత ఏర్పడే పరిస్థితి).</li>
+                <li><strong>मानవకారక/మానవకారక విపత్తులు:</strong> ఇవి సాంకేతిక లేదా మానవ ప్రమాదాల పర్యవసానాలు.</li>
+            </ul>
+
+            <!-- ఇమేజ్ ప్లేస్‌హోల్డర్: విపత్తులు -->
+            <div class="image-placeholder">
+                [విపత్తుల రకాలు/నిర్వహణ చిత్రం]
+            </div>
+
+            <h3>నివారణా పద్ధతులు (భద్రతా చిట్కాలు):</h3>
+            <p>ప్రమాద సమయంలో నష్టాలను తగ్గించడానికి కింది పద్ధతులు ఉపయోగపడతాయి:</p>
+            <ul>
+                <li>సంసిద్ధత, ప్రమాదాల నివారణకు భద్రతా చిట్కాలు పాటించడం ద్వారా గాయాలు కాకుండా నివారించడం.</li>
+                <li>అత్యవసర పరిస్థితుల్లో వేగంగా స్పందించడం, విపత్తుల గురించి సమాచారం కలిగి ఉండటం.</li>
+                <li>అత్యవసర పరిస్థితుల్లో సురక్షితమైన ప్రాంతానికి వెళ్ళడానికి ప్రణాళికను కలిగి ఉండటం మరియు అత్యవసర వస్తు సామగ్రి అందుబాటులో ఉండటం.</li>
+                <li>ప్రమాదం జరిగినప్పుడు మీ ఇంట్లో సురక్షితమైన ప్రాంతానికి చేరుకోవడం.</li>
+            </ul>
+
+            <h3>విపత్తు నిర్వహణ (Disaster Management):</h3>
+            <p>ఏదైనా ప్రమాదం లేదా ముప్పును నివారించడానికి అవసరమైన లేదా ఉపయోగకరమైన చర్యలతో ప్రణాళిక రూపొందించడం, నిర్వహించడం మరియు అమలు చేయడం యొక్క నిరంతర మరియు సమగ్ర ప్రక్రియను విపత్తు నిర్వహణ అంటారు. విపత్తు తీవ్రత లేదా परिణామాలను తగ్గించడం, ఏదైనా విపత్తును ఎదుర్కోవడానికి సంసిద్ధంగా ఉండడం, సామర్థ్యాన్ని పెంపొందించడం, అనుకోకుండా సంభవించే విపత్తుల పట్ల సత్వరంగా స్పందించడం, విపత్తు యొక్క తీవ్రత లేదా పరిమాణాన్ని అంచనా వేయడాన్ని విపత్తు నిర్వహణ అంటారు.</p>
+
+            <h3>భారతదేశంలో విపత్తు నిర్వహణ & పదవ ప్రణాళిక:</h3>
+            <ul>
+                <li>భారతదేశంలో విపత్తు నిర్వహణ ప్రధానంగా ప్రకృతి వైపరీత్యాలతో బాధపడుతున్న ప్రజలకు ఉపశమనం మరియు పునరావాసం కల్పించడం వంటి అంశాలకు సంబంధించినది.</li>
+                <li><strong>పదవ ప్రణాళిక:-</strong> పదవ పంచవర్ష ప్రణాళికలో మొదటిసారిగా విపత్తు నిర్వహణను <span class="highlight">"అభివృద్ధి కృతం"</span> గా నిర్ణయించబడింది.</li>
+                <li>పదవ ప్రణాళిక విపత్తుల నియంత్రణ కోసం విధాన మార్గదర్శకాలు, కార్యాచరణ మార్గదర్శకాలు, నిర్దిష్ట అభివృద్ధి పథకాలు సూచించినది.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+          
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>

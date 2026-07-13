@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. విజయనగర సామ్రాజ్యం</title>
+    <style>
+        body {
+            font-family: 'Mandali', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h2, h3, .card h2, p, li, th, td {
+            font-family: 'Mandali', sans-serif;
+            font-weight: normal;
+        }
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --primary-color: #b71c1c;
+            --secondary-color: #1565c0;
+            --accent-color: #d84315;
+            --highlight-name: #2e7d32;
+            --border-color: #e0e0e0;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --primary-color: #ef5350;
+            --secondary-color: #64b5f6;
+            --accent-color: #ff7043;
+            --highlight-name: #81c784;
+            --border-color: #333333;
+        }
+        body {
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        .header {
+            background: linear-gradient(135deg, #b71c1c, #0d47a1);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        [data-theme="dark"] .header {
+            background: linear-gradient(135deg, #5c0000, #001f4d);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .theme-switch-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 26px;
+            position: relative;
+            width: 50px;
+        }
+        .theme-switch input {
+            display: none;
+        }
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            background-color: white;
+            bottom: 4px;
+            content: "";
+            height: 18px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        .mode-label {
+            margin-right: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.2s;
+            box-sizing: border-box;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        .card.blue-border {
+            border-left-color: var(--secondary-color);
+        }
+        .card.orange-border {
+            border-left-color: var(--accent-color);
+        }
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        .blue-border h2 {
+            color: var(--secondary-color);
+        }
+        .orange-border h2 {
+            color: var(--accent-color);
+        }
+        h3 {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            margin-top: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .name-hl {
+            color: var(--highlight-name);
+            font-weight: bold;
+        }
+        .term-hl {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .image-placeholder {
+            background-color: rgba(0, 0, 0, 0.04);
+            border: 2px dashed #999;
+            border-radius: 8px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+        [data-theme="dark"] .image-placeholder {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: #555;
+            color: #aaa;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: rgba(0,0,0,0.03);
+            color: var(--primary-color);
+        }
+        [data-theme="dark"] th {
+            background-color: rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>విజయనగర సామ్రాజ్యం</h1>
+        <div class="theme-switch-wrapper">
+            <span class="mode-label"></span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>పరిచయం - విజయనగర సామ్రాజ్యం</h2>
+            <ul>
+                <li>దక్కన్ ప్రాంతంలో ముహమ్మద్ బిన్ తుగ్లక్ అధికారం కోల్పోతున్న సమయంలో రెండు కొత్త రాజ్యాలు ఆవిర్భవించాయి. అవి <span class="term-hl">విజయనగర సామ్రాజ్యం</span> మరియు <span class="term-hl">బహమనీ రాజ్యం</span>. అందులో దక్షిణ భారతదేశంలో ముఖ్యమైనది విజయనగర సామ్రాజ్యం.</li>
+                <li>దక్షిణ భారతదేశంలో ముస్లింల దురాక్రమణలకు వ్యతిరేకంగా హిందూ మతం తన వైదిక సంస్కృతి సాంప్రదాయాల పరిరక్షణలో ఒక విజేతలాగా వ్యవహరించడం ద్వారా తన చారిత్రక ప్రయోజనాలను కాపాడుకొన్నది.</li>
+                <li>సమర్థవంతమైన పరిపాలన, సంపన్న ఆర్థిక వ్యవస్థ, దౌత్య రాజకీయాలు, ఉదారవాద మత విధానం కారణంగా, విజయనగర సామ్రాజ్యం క్రీ.శ. 1336 నుండి క్రీ.శ. 1646 వరకు మూడు వందల సంవత్సరాలకు పైగా భారతదేశ చరిత్రలో గొప్ప స్థానాన్ని ఆక్రమించింది.</li>
+                <li>14 మరియు 15 శతాబ్దాలలో మొత్తం దక్షిణ భారతదేశంలో విస్తరించిన, ప్రపంచంలో రెండవ అతిపెద్ద రాజధాని నగరం గల సామ్రాజ్యపు రాజధాని ఆ సమయంలో లండన్, పారిస్ కంటే పెద్దదిగా పెరుగుగణించింది. ఆ నగర వీధుల్లో వ్యాపారులు రత్నాలు మరియు విలువైన రాళ్లతో వర్తకం చేసేవారు.</li>
+                <li>విజయనగర సామ్రాజ్యానికి <span class="term-hl">హంపి</span> రాజధానిగా ఉండేది. విజయనగరం ఆ కాలంలో ప్రపంచంలోనే అత్యంత ధనిక రాజ్యం. అంతేకాకుండా అన్ని రకాల కళలు, కవిత్వం, నృత్యం, సంగీతం మరియు శిల్పం అభివృద్ధి చెందాయి.</li>
+                <li>విద్యారణ్య, సాయన, అల్లసాని పెద్దన, ధూర్జటి, పింగళ సూరన మరియు తెనాలి రామకృష్ణ వంటి పేర్లు విజయనగర యుగానికి చెందినవి.</li>
+            </ul>
+        </div>
+
+        <div class="card blue-border">
+            <h2>విజయనగర సామ్రాజ్యం: ముఖ్యాంశాలు</h2>
+            <ul>
+                <li><strong>పాలకులు:</strong> సంగమ వంశం (క్రీ.శ. 1336-1485), సాళువ వంశం (క్రీ.శ. 1485-1505), తులువ వంశం (క్రీ.శ. 1505-1570), అరవీడు వంశం (క్రీ.శ. 1570-1646).</li>
+                <li><strong>పాలనా, సామాజిక, ఆర్థిక జీవితం:</strong> పాలన విభాగాలు - మండలాలు, నాడులు, స్థలాలు, గ్రామాలు.</li>
+                <li><strong>కళలు మరియు నిర్మాణాలు:</strong> కళారూపాలు, కర్ణాటక సంగీతం, కూచిపూడి, యక్షగానం.</li>
+                <li><strong>సమకాలీన రాజ్యాలు:</strong> బహమనీ రాజ్యం, రెడ్డి రాజ్యం.</li>
+            </ul>
+
+            <h3>విజయనగర పాలకులు - స్థాపన:</h3>
+            <ul>
+                <li>దక్షిణ భారతదేశంలోని ప్రసిద్ధిచెందిన విజయనగర సామ్రాజ్యము క్రీ.శ. 1336లో సంగమ వంశానికి చెందిన <span class="name-hl">మొదటి హరిహరరాయలు</span> మరియు <span class="name-hl">మొదటి బుక్కరాయలు</span> సోదరుల చేత, <span class="name-hl">విద్యారణ్యస్వామి</span> వారి ప్రోత్సాహముతో స్థాపించబడింది.</li>
+                <li>మొదటి హరిహరరాయలు మరియు మొదటి బుక్కరాయలు మొదటగా వరంగల్కు చెందిన కాకతీయ రాజ రెండవ ప్రతాపరుద్రుని ఆస్థానంలో క్రీ.శ. 1323లో పనిచేసేవారు.</li>
+                <li>కాకతీయ రాజ్యాన్ని ముస్లింలు ఆక్రమించడంతో హరిహర, బుక్కరాయ సోదరులు ఇద్దరు కంపిలి రాజ్యానికి వెళ్ళి అక్కడ మంత్రులుగా పనిచేశారు. తరువాత తుగ్లక్ చేతిలో ఖైదు కావడం, ఇస్లాంలోకి మారడం, మళ్లీ విద్యారణ్యస్వామి చొరవతో హిందూ మతానికి రావడం జరిగింది.</li>
+                <li>క్రీ.శ. 1336లో తుంగభద్రా నదికి దక్షిణ ఒడ్డున విజయనగరమును స్థాపించారు.</li>
+                <li>హంపి వద్ద ఉన్న శిథిలాలు 1805లో ఇంజనీర్, పురాత్వవేత్త అయిన <span class="name-hl">కల్నల్ కోలిన్ మెకంజీ</span> కాలంలో వెలుగులోకి వచ్చాయి.</li>
+            </ul>
+        </div>
+
+        <div class="card orange-border">
+            <h2>విజయనగర రాజవంశాలు</h2>
+            
+            <h3>1. సంగమ రాజవంశము (క్రీ.శ. 1336 - 1485):</h3>
+            <ul>
+                <li>ప్రముఖులు: మొదటి హరిహరరాయలు (క్రీ.శ. 1336-1357), మొదటి బుక్కరాయలు (క్రీ.శ. 1357-1377), రెండవ హరిహర రాయలు (క్రీ.శ. 1377-1404), <span class="name-hl">రెండవ దేవరాయలు</span> (క్రీ.శ. 1426-1446).</li>
+                <li>సంగమ రాజవంశంలో గొప్ప పాలకుడు రెండవ దేవరాయలు (ప్రౌఢ దేవరాయలు). అతను కళింగ సైన్యాన్ని ఓడించి కొండవీడును స్వాధీనం చేసుకొని రాజమండ్రి వరకు తన అధికారాన్ని సుస్థిరం చేశాడు.</li>
+            </ul>
+
+            <h3>2. సాళువ రాజవంశము (క్రీ.శ. 1485 - 1505):</h3>
+            <ul>
+                <li>ఇది <span class="name-hl">సాళువ నరసింహరాయల</span> చే స్థాపించబడింది. అతని తరువాత ఇమ్మడి నరసింహరాయలు రాజ్యపాలన చేశాడు.</li>
+            </ul>
+
+            <h3>3. తులువ రాజవంశము (క్రీ.శ. 1505 - 1570):</h3>
+            <div class="image-placeholder">[శ్రీకృష్ణదేవరాయల చిత్రం]</div>
+            <ul>
+                <li>పాలకులు: వీరనరసింహరాయలు, <span class="name-hl">శ్రీకృష్ణదేవరాయలు</span> (క్రీ.శ. 1509-1529), అచ్యుతరాయలు (క్రీ.శ. 1529-1542), సదాశివరాయలు.</li>
+                <li><strong>శ్రీకృష్ణదేవరాయలు:</strong> తులువ వంశానికి చెందిన అత్యంత శక్తివంతమైన పాలకుడు. విదేశీ వాణిజ్యాన్ని అభివృద్ధి చేశాడు. క్రీ.శ. 1520లో రాయచూర్ నగరాన్ని స్వాధీనం చేసుకున్నాడు. ఆయన మంత్రి మరియు మార్గదర్శి అయిన <span class="name-hl">తిమ్మరుసు</span> పరిపాలనలో సహాయపడ్డారు.</li>
+                <li>ఆంధ్రభోజుడు అని పిలవబడ్డారు. "దేశ భాషలందు తెలుగులెస్స" అని పలికారు.</li>
+                <li><strong>అష్టదిగ్గజములు:</strong> అల్లసాని పెద్దన (ఆంధ్ర కవితా పితామహుడు - మనుచరిత్ర, హరికథాసారం), నంది తిమ్మన (పారిజాతాపహరణం), మాదయ గారి మల్లన, ధూర్జటి (శ్రీ కాళహస్తీశ్వర మహాత్యం), అయ్యలరాజు రామభద్రుడు, పింగళ సూరన, రామరాజ భూషణుడు, తెనాలి రామకృష్ణుడు (పాండురంగ మహాత్యం).</li>
+                <li>రచనలు: శ్రీకృష్ణదేవరాయలు తెలుగులో 'ఆముక్తమాల్యద', సంస్కృతంలో జాంబవతీ కళ్యాణం, ఉషాపరిణయం రచించారు. విజయనగరంలో విఠలస్వామి, హజార రామస్వామి ఆలయాలు నిర్మించారు. తల్లి నాగలాంబ జ్ఞాపకార్థం నాగలాపురం నిర్మించారు.</li>
+            </ul>
+
+            <h3>4. అరవీటి వంశము (క్రీ.శ. 1570 - 1646):</h3>
+            <ul>
+                <li>తళ్ళికోట యుద్ధం తరువాత విజయనగర సామ్రాజ్యం క్షీణించినప్పటికీ అరవిడు రాజవంశం క్రింద మరో శతాబ్దంపాటు ఉనికిలో ఉంది. తిరుమల, శ్రీరంగ మరియు రెండవ వెంకటపతిరాయలు ముఖ్యమైన పాలకులు. చివరి పాలకుడు మూడవ శ్రీరంగరాయలు.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>అష్టదిగ్గజాలు మరియు వారి రచనలు</h2>
+            <table>
+                <tr>
+                    <th>క్రమసం.</th>
+                    <th>కవి</th>
+                    <th>రచన</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><strong>అల్లసాని పెద్దన</strong></td>
+                    <td>మనుచరిత్ర, హరికథాసారం</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>నంది తిమ్మన</strong></td>
+                    <td>పారిజాతాపహరణం</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>మాదయ గారి మల్లన</strong></td>
+                    <td>రాజశೇಖర చరిత్రం</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>ధూర్జటి</strong></td>
+                    <td>శ్రీ కాళహస్తీశ్వర మహాత్యం</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>అయ్యలరాజు రామభద్రుడు</strong></td>
+                    <td>సకల నీతిసార సంగ్రహం</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><strong>పింగళ సూరన</strong></td>
+                    <td>రాఘవ పాండవీయం</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><strong>రామరాజ భూషణుడు</strong></td>
+                    <td>వసుచరిత్ర</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><strong>తెనాలి రామకృష్ణుడు</strong></td>
+                    <td>పాండురంగ మహాత్యం</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card blue-border">
+            <h2>రాజకీయ, సామాజిక మరియు ఆర్థిక జీవితం</h2>
+            
+            <h3>పరిపాలన మరియు అమర నాయక వ్యవస్థ:</h3>
+            <ul>
+                <li>సామ్రాజ్యాన్ని మండలాలు, నాడులు, స్థలాలు, గ్రామాలుగా విభజించారు. మండల పాలకుని 'మండలేశ్వరుడు' లేదా 'నాయక్' అని పిలిచేవారు.</li>
+                <li><strong>అమర నాయకులు:</strong> కోటలను, సాయుధ దళాలను నియంత్రించే సైనిక అధికారులను అమర నాయకులు లేదా నాయక అంటారు. వీరికి రాజు కొంత భూభాగం (అమరం) ఇచ్చేవారు.</li>
+            </ul>
+
+            <h3>సామాజిక మరియు ఆర్థిక జీవితం:</h3>
+            <ul>
+                <li>సమాజం వ్యవస్థీకృతంగా ఉంది. మహిళలు ఉన్నత స్థానాన్ని పొంది రాజకీయ, సామాజిక, సాహిత్య కార్యక్రమాలలో చురుకుగా పాల్గొన్నారు. <span class="name-hl">గంగాదేవి</span> (మధురావిజయం), తాళ్ళపాక తిమ్మక్క, ఆతుకూరి మొల్ల ఈ కాలం వారు.</li>
+                <li>వ్యవసాయం ప్రజల ప్రధాన వృత్తి. నీటిపారుదల సదుపాయాలు మెరుగుపరిచారు. 'వరాహ' అనునది ప్రధాన బంగారు నాణెం. పశ్చిమాన అరేబియా, పర్షియా, దక్షిణాఫ్రికా, పోర్చుగల్ మరియు తూర్పున చైనా తదితరులతో వాణిజ్యం వృద్ధి చెందింది.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>విజయనగర సామ్రాజ్యాన్ని సందర్శించిన విదేశీ యాత్రికులు</h2>
+            <table>
+                <tr>
+                    <th>క్రమసం.</th>
+                    <th>యాత్రికుడు</th>
+                    <th>ఎవరి కాలంలో</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ఇబన్ బటూటా (మొరాకో)</td>
+                    <td>మొదటి హరిహరరాయలు</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>నికోలో కాంటి (ఇటలీ)</td>
+                    <td>రెండవ దేవరాయలు</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>అబ్దుల్ రజాక్ (పర్షియా)</td>
+                    <td>రెండవ దేవరాయలు</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>దువార్టే బార్బోసా (పోర్చుగల్)</td>
+                    <td>శ్రీకృష్ణదేవరాయలు</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>డొమింగో పేస్ (పోర్చుగల్)</td>
+                    <td>శ్రీకృష్ణదేవరాయలు</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>ఫెర్నాండో నూనిజ్ (పోర్చుగల్)</td>
+                    <td>అచ్యుత దేవరాయలు</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card orange-border">
+            <h2>కళలు, నిర్మాణాలు మరియు సమకాలీన రాజ్యాలు</h2>
+            
+            <h3>కళలు మరియు నిర్మాణాలు:</h3>
+            <ul>
+                <li>ఎత్తైన గోపురాలు, కళ్యాణ మండపాలు, స్తంభాలపై శిల్పాలు (గుర్రం సాధారణ జంతువు) విజయనగర వాస్తుశిల్పం ముఖ్యలక్షణాలు. విఠలస్వామి దేవాలయము, హజార రామస్వామి ఆలయం ప్రముఖమైనవి.</li>
+                <li>కర్ణాటక సంగీత సాంప్రదాయం అభివృద్ధి చెందింది (విద్యారణ్యస్వామి - సంగీత సర్వస్వం). భరతనాట్యం, కూచిపూడి, యక్షగానం ప్రాచుర్యం పొందాయి.</li>
+            </ul>
+
+            <h3>తళ్ళికోట యుద్ధం (రాక్షస తంగడి యుద్ధం):</h3>
+            <p>క్రీ.శ. 1565లో బీజాపూర్, అహ్మద్ నగర్, గోల్కొండ మరియు బీదర్ సంయుక్త దళాల కూటమికి, అలియరామరాయలకు మధ్య జరిగిన ఈ యుద్ధం విజయనగర సామ్రాజ్యం యొక్క ముగింపుగా భావించబడింది.</p>
+
+            <h3>సమకాలీన రాజ్యాలు:</h3>
+            <ul>
+                <li><strong>రెడ్డి రాజ్యం (1325-1448):</strong> ప్రోలయ వేమారెడ్డి స్థాపించారు. మొదటి రాజధాని అద్దంకి, తరువాత కొండవీడుకు మార్చారు. ఎర్రాప్రగడ ప్రోలయ వేమారెడ్డి ఆస్థాన కవి (ప్రబంధ పరమేశ్వరుడు).</li>
+                <li><strong>బహమనీ సామ్రాజ్యం:</strong> అల్లావుద్దీన్ బహ్మన్షా (హసన్ గంగూ) క్రీ.శ. 1347లో గుల్బర్గా రాజధానిగా స్థాపించారు. మహమ్మద్ గవాన్ మార్గదర్శకత్వంలో బహమనీ రాజ్యం అత్యున్నత స్థాయికి చేరుకుంది. తరువాత బహమనీ రాజ్యం అహ్మద్ నగర్, బీరార్, బీదర్, బీజాపూర్, గోల్కొండలుగా విడిపోయింది.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>ముఖ్యమైన పదాలు - అర్థాలు</h2>
+            <ul>
+                <li><strong>దండయాత్ర:</strong> సాయుధ దళాల దాడి, ఆక్రమణ లేదా ముట్టడి.</li>
+                <li><strong>అంతర్వేది:</strong> రెండు నదుల మధ్య ఉన్న భూభాగము.</li>
+                <li><strong>ఫిరంగులు:</strong> యుద్ధాలలో ఉపయోగించే పెద్ద శక్తివంతమైన తుపాకులు.</li>
+                <li><strong>నాయక:</strong> చక్రవర్తి తరపున పాలన మరియు సైనిక విధులను నిర్వహించేవారు.</li>
+                <li><strong>వ్యాపారులు:</strong> అమ్మకము మరియు కొనుగోళ్లు చేసేవారు.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>
